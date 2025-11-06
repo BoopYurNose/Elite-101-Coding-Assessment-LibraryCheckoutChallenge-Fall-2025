@@ -1,9 +1,14 @@
 from library_books import library_books
 from datetime import datetime, timedelta
 
+LibraryBooks = library_books
+
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
 # Output should include book ID, title, and author
+
+for Item in LibraryBooks:
+    print(Item[3])
 
 
 # -------- Level 2 --------
