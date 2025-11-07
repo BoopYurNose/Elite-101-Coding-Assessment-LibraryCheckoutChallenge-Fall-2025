@@ -1,14 +1,19 @@
-from library_books import library_books
+from Library import libraryBooksList
 from datetime import datetime, timedelta
 
-LibraryBooks = library_books
+
 
 # -------- Level 1 --------
 # TODO: Create a function to view all books that are currently available
 # Output should include book ID, title, and author
 
-for Item in LibraryBooks:
-    print(Item[3])
+# PSEUDO Code
+''''I am going to change the List name to be different from the python file name. Technically it really isn't necessary at all.
+But honestly it just confuses me 
+
+Then I would define a list in this script to equal to the LibraryBookList in the module script
+I would define a simple function that doesn't take any arguements
+inside this function I will run a for loop that will iterate through each dictinary in the table''' 
 
 
 # -------- Level 2 --------
