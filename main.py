@@ -14,14 +14,14 @@ I would define a simple function that doesn't take any arguements
 inside this function I will run a for loop that will iterate through each dictionary in the table
 in each iteration of this for loop I will index the string key "available" which will reference the fourth index in each dictionary 
 which is referencing to the Available Bolean value
-if it is equal to true I will print the book values in the dictionaries''' 
+if it is equal to true I will print the book values in the dictionaries and only include the book ID, title, and author''' 
 
 LibraryList = libraryBooksList.libraryBooksList
 
 def BookAvailabilityCheck():
     for Dictionaries in LibraryList:
         if Dictionaries["available"] == True:
-            print(Dictionaries)
+            print(Dictionaries["id"], Dictionaries["title"], Dictionaries["author"])
 
 BookAvailabilityCheck()
 
