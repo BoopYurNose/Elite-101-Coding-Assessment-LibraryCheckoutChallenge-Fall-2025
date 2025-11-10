@@ -1,4 +1,4 @@
-from Library import libraryBooksList
+import libraryBooksList as libraryBooksList
 from datetime import datetime, timedelta
 
 
@@ -8,12 +8,24 @@ from datetime import datetime, timedelta
 # Output should include book ID, title, and author
 
 # PSEUDO Code
-''''I am going to change the List name to be different from the python file name. Technically it really isn't necessary at all.
-But honestly it just confuses me 
-
-Then I would define a list in this script to equal to the LibraryBookList in the module script
+''''
+I will define a list in this script to equal to the LibraryBookList in the module script
 I would define a simple function that doesn't take any arguements
-inside this function I will run a for loop that will iterate through each dictinary in the table''' 
+inside this function I will run a for loop that will iterate through each dictionary in the table
+in each iteration of this for loop I will index the string key "available" which will reference the fourth index in each dictionary 
+which is referencing to the Available Bolean value
+if it is equal to true I will print the book values in the dictionaries''' 
+
+LibraryList = libraryBooksList.libraryBooksList
+
+def BookAvailabilityCheck():
+    for Dictionaries in LibraryList:
+        if Dictionaries["available"] == True:
+            print(Dictionaries)
+
+BookAvailabilityCheck()
+
+
 
 
 # -------- Level 2 --------
