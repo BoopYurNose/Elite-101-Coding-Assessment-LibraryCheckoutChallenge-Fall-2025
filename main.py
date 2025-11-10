@@ -17,13 +17,13 @@ which is referencing to the Available Bolean value
 if it is equal to true I will print the book values in the dictionaries and only include the book ID, title, and author''' 
 
 LibraryList = libraryBooksList.libraryBooksList
-
+''' PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
 def BookAvailabilityCheck():
     for Dictionaries in LibraryList:
         if Dictionaries["available"] == True:
             print(Dictionaries["id"], Dictionaries["title"], Dictionaries["author"])
 
-BookAvailabilityCheck()
+BookAvailabilityCheck()'''
 
 
 
@@ -32,6 +32,17 @@ BookAvailabilityCheck()
 # TODO: Create a function to search books by author OR genre
 # Search should be case-insensitive
 # Return a list of matching books
+
+'''I will create a function that takes in the user input as an arguement
+'''
+
+def SearchBook(UserSearch):
+    for Dictionaries in LibraryList:
+        for TitleCharacters in Dictionaries["title"]:
+            print(TitleCharacters)
+
+UserInput = input("Type in a search term to search for a book:")
+SearchBook(UserInput)
 
 
 # -------- Level 3 --------
