@@ -38,8 +38,13 @@ BookAvailabilityCheck()'''
 
 def SearchBook(UserSearch):
     for Dictionaries in LibraryList:
-        for TitleCharacters in Dictionaries["title"]:
-            print(TitleCharacters)
+        if UserSearch == Dictionaries["title"]: #Checking if the user entered the full name in
+            print(f"{Dictionaries["title"]} We found this relating to your search of: {UserSearch}")
+        for TitleCharacters in Dictionaries["title"]: #Checking if the user entered in characters relating to the book title like a character in a table
+            if UserSearch == TitleCharacters: # issue here is that it only searches by single character I guess I'll add another if statement but I know
+                print(f"{Dictionaries["title"]} We found this relating to your search of: {UserSearch}") #There is a better way to code this I'll do more research and learn more
+            
+                
 
 UserInput = input("Type in a search term to search for a book:")
 SearchBook(UserInput)
