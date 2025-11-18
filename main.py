@@ -17,13 +17,15 @@ which is referencing to the Available Bolean value
 if it is equal to true I will print the book values in the dictionaries and only include the book ID, title, and author''' 
 
 LibraryList = libraryBooksList.libraryBooksList
-''' PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
+#PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
+
+# sorry I'm a dumbass (⩾﹏⩽)
 def BookAvailabilityCheck():
     for Dictionaries in LibraryList:
         if Dictionaries["available"] == True:
             print(Dictionaries["id"], Dictionaries["title"], Dictionaries["author"])
 
-BookAvailabilityCheck()'''
+BookAvailabilityCheck()
 
 
 
@@ -33,22 +35,43 @@ BookAvailabilityCheck()'''
 # Search should be case-insensitive
 # Return a list of matching books
 
-'''I will create a function that takes in the user input as an arguement
-'''
-
+''' old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
 def SearchBook(UserSearch):
     for Dictionaries in LibraryList:
         if UserSearch == Dictionaries["title"]: #Checking if the user entered the full name in
             print(f"{Dictionaries["title"]} We found this relating to your search of: {UserSearch}")
-        for TitleCharacters in Dictionaries["title"]: #Checking if the user entered in characters relating to the book title like a character in a table
+        for TitleCharacters in Dictionaries["title"]: #Checking if the user entered in characters relating to the book title like a single character in the title
             if UserSearch == TitleCharacters: # issue here is that it only searches by single character I guess I'll add another if statement but I know
-                print(f"{Dictionaries["title"]} We found this relating to your search of: {UserSearch}") #There is a better way to code this I'll do more research and learn more
-            
-                
+                print(f"{Dictionaries["title"]} We found this relating to your search of: {UserSearch}") #There is a better way to code this I'll do more research and learn more          
 
-UserInput = input("Type in a search term to search for a book:")
+UserInput = input("\nType in a search term to search for a book:")
 SearchBook(UserInput)
+'''
+# -------- Level 2 --------
+# TODO: Create a function to search books by author OR genre
+# Search should be case-insensitive
+# Return a list of matching books
+'''PSEUDO Code (second version)
+1. I created a function that takes in a arguement that being the UserInput Variable
+2. for now I put a pass in the function as I created the UserInput input variable that allows you to input a value
+3. I called the function passing the UserInput variable into it
+4. I removed the pass that is nested inside the SearchBook function and got to work on the function. First I made the UserSearch variable all lowercase characters so it doesn't matter if a character has lower
+or upper case it will still find it if it's the same character
+5. I made a for loop that iterates thru each dictionary in the LibraryList List
+6. in this for loop I run a if statement that uses SubString Search the (in) keyword that checks if UserSearch is equal to any of the characters in the title string key author string key and genre string key
+7. if it is I will print the dictionaries title, genre, and author 
+'''
+def SearchBook(UserSearch):
+    UserSearch = UserSearch.lower()
 
+    for Dictionaries in LibraryList:
+        if UserSearch in Dictionaries["title"].lower() or UserSearch in Dictionaries["author"].lower() or UserSearch in Dictionaries["genre"].lower():
+            print(f"These are the results for titles: {Dictionaries["title"]}")
+            print(f"These are all the results for genre: {Dictionaries["genre"]}")            
+            print(f"These are all the results for author: {Dictionaries["author"]}")
+
+UserInput = input("\nSearch for a book by it's title, author name, or genre: ")
+SearchBook(UserInput)
 
 # -------- Level 3 --------
 # TODO: Create a function to checkout a book by ID
