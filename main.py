@@ -20,7 +20,7 @@ LibraryList = libraryBooksList.libraryBooksList
 #PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
 
 # sorry I'm a dumbass (⩾﹏⩽)
-'''def BookAvailabilityCheck():
+def BookAvailabilityCheck():
     for Dictionaries in LibraryList:
         if Dictionaries["available"] == True:
             print(Dictionaries["id"], Dictionaries["title"], Dictionaries["author"])
@@ -35,7 +35,7 @@ BookAvailabilityCheck()
 # Search should be case-insensitive
 # Return a list of matching books
 
-old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
+'''old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
 def SearchBook(UserSearch):
     for Dictionaries in LibraryList:
         if UserSearch == Dictionaries["title"]: #Checking if the user entered the full name in
@@ -51,6 +51,7 @@ SearchBook(UserInput)
 # TODO: Create a function to search books by author OR genre
 # Search should be case-insensitive
 # Return a list of matching books
+
 PSEUDO Code (second version)
 1. I created a function that takes in a arguement that being the UserInput Variable
 2. for now I put a pass in the function as I created the UserInput input variable that allows you to input a value
@@ -61,7 +62,7 @@ or upper case it will still find it if it's the same character
 6. in this for loop I run a if statement that uses SubString Search the (in) keyword that checks if UserSearch is equal to any of the characters in the title string key author string key and genre string key
 7. if it is I will print the dictionaries title, genre, and author 
 
-temporarily commented out for testing purposes on Level 3. Make sure to uncomment when finished
+temporarily commented out for testing purposes on Level 3. Make sure to uncomment when finished'''
 
 def SearchBook(UserSearch):
     UserSearch = UserSearch.lower()
@@ -74,7 +75,7 @@ def SearchBook(UserSearch):
 
 UserInput = input("\nSearch for a book by it's title, author name, or genre: ")
 SearchBook(UserInput)
-'''
+
 # -------- Level 3 --------
 # TODO: Create a function to checkout a book by ID
 # If the book is available:
