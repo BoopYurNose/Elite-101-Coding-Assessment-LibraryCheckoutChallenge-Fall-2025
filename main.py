@@ -1,5 +1,5 @@
 import libraryBooksList as libraryBooksList
-from datetime import datetime, timedelta
+from datetime import date, timedelta
 
 
 
@@ -17,7 +17,7 @@ which is referencing to the Available Bolean value
 if it is equal to true I will print the book values in the dictionaries and only include the book ID, title, and author
 '''
 LibraryList = libraryBooksList.libraryBooksList
-'''#PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
+#PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
 
 # sorry I'm a dumbass (⩾﹏⩽)
 def BookAvailabilityCheck():
@@ -35,7 +35,7 @@ BookAvailabilityCheck()
 # Search should be case-insensitive
 # Return a list of matching books
 
-old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
+'''old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
 
 def SearchBook(UserSearch):
     for Dictionaries in LibraryList:
@@ -62,8 +62,7 @@ or upper case it will still find it if it's the same character
 5. I made a for loop that iterates thru each dictionary in the LibraryList List
 6. in this for loop I run a if statement that uses SubString Search the (in) keyword that checks if UserSearch is equal to any of the characters in the title string key author string key and genre string key
 7. if it is I will print the dictionaries title, genre, and author 
-
-temporarily commented out for testing purposes on Level 3. Make sure to uncomment when finished
+'''
 
 def SearchBook(UserSearch):
     UserSearch = UserSearch.lower()
@@ -86,11 +85,11 @@ SearchBook(UserInput)
 # If it is not available:
 #   - Print a message saying it's already checked out
 
-'''
-from datetime import date, timedelta
+
+
 
 CurrentDate = date.today()
-'''
+
 def UserCheckout(IdInput):
 
     for DictionaryValue in LibraryList:
@@ -142,10 +141,10 @@ def ReturnBookID(UserID):
 
 UserReturnInput = input("Type the id of the book you'd like to return:")
 ReturnBookID(UserReturnInput)
-'''
+
 # TODO: Create a function to list all overdue books
 # A book is overdue if its due_date is before today AND it is still checked out
-
+''' WORK IN PROGRESS
 def DisplayAllOverDue():
     for Dictionaries in LibraryList:
         if Dictionaries["available"] == False:
@@ -172,3 +171,4 @@ DisplayAllOverDue()
 #if __name__ == "__main__":
     # You can use this space to test your functions
 #    pass
+'''
