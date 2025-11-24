@@ -14,10 +14,10 @@ I would define a simple function that doesn't take any arguements
 inside this function I will run a for loop that will iterate through each dictionary in the table
 in each iteration of this for loop I will index the string key "available" which will reference the fourth index in each dictionary 
 which is referencing to the Available Bolean value
-if it is equal to true I will print the book values in the dictionaries and only include the book ID, title, and author''' 
-
+if it is equal to true I will print the book values in the dictionaries and only include the book ID, title, and author
+'''
 LibraryList = libraryBooksList.libraryBooksList
-#PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
+'''#PLEASE UNCOMMENT THIS BEFORE YOU SUBMIT IT ZACHARY 
 
 # sorry I'm a dumbass (⩾﹏⩽)
 def BookAvailabilityCheck():
@@ -35,7 +35,8 @@ BookAvailabilityCheck()
 # Search should be case-insensitive
 # Return a list of matching books
 
-'''old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
+old code (it's funny how much I over complicated this. I could've literally just used SubString Search..)
+
 def SearchBook(UserSearch):
     for Dictionaries in LibraryList:
         if UserSearch == Dictionaries["title"]: #Checking if the user entered the full name in
@@ -62,7 +63,7 @@ or upper case it will still find it if it's the same character
 6. in this for loop I run a if statement that uses SubString Search the (in) keyword that checks if UserSearch is equal to any of the characters in the title string key author string key and genre string key
 7. if it is I will print the dictionaries title, genre, and author 
 
-temporarily commented out for testing purposes on Level 3. Make sure to uncomment when finished'''
+temporarily commented out for testing purposes on Level 3. Make sure to uncomment when finished
 
 def SearchBook(UserSearch):
     UserSearch = UserSearch.lower()
@@ -85,18 +86,30 @@ SearchBook(UserInput)
 # If it is not available:
 #   - Print a message saying it's already checked out
 
-Due_Date = 0
+'''
+from datetime import date, timedelta
 
+CurrentDate = date.today()
+'''
 def UserCheckout(IdInput):
-    global Due_Date
 
     for DictionaryValue in LibraryList:
-        if IdInput == DictionaryValue["id"]:
+        if IdInput.lower() == DictionaryValue["id"].lower():
             if DictionaryValue["available"]:
-                print(f"{DictionaryValue["id"]} is available for checkout")
-                print(f"This book is available now {DictionaryValue["available"]}")
-                DictionaryValue["available"] == False
-                print(DictionaryValue["available"])
+                print(f"{DictionaryValue["id"]} is available for checkout \n")
+
+                DictionaryValue["due_date"] = CurrentDate + timedelta(days=14)
+                print(f"{DictionaryValue["title"]} is due on {DictionaryValue["due_date"]} \n")
+
+                DictionaryValue["available"] = False
+                print(f"{DictionaryValue["id"]} has been checked out and it is {DictionaryValue["available"]} not available for checkout anymore")
+                return
+            else:
+                print(f"{DictionaryValue["id"]} is not available for checkout sorry")
+                return
+    
+    print("Sorry no id's found with that search")
+    return
 
 
 
@@ -109,9 +122,40 @@ UserCheckout(UserIDInput)
 # TODO: Create a function to return a book by ID
 # Set its availability to True and clear the due_date
 
+def ReturnBookID(UserID):
+
+    for DictionaryValues in LibraryList:
+        if UserID.lower() == DictionaryValues["id"].lower():
+            if DictionaryValues["available"] == False:
+                print(f"Thank you for returning {DictionaryValues["title"]} to the library (⩾﹏⩽)")
+                DictionaryValues["available"] = True
+                DictionaryValues["due_date"] = None
+
+                #print(DictionaryValues["available"])
+                #print(DictionaryValues["due_date"])
+                return 
+            
+            
+            print("This book is already returned")
+            return        
+
+
+UserReturnInput = input("Type the id of the book you'd like to return:")
+ReturnBookID(UserReturnInput)
+'''
 # TODO: Create a function to list all overdue books
 # A book is overdue if its due_date is before today AND it is still checked out
 
+def DisplayAllOverDue():
+    for Dictionaries in LibraryList:
+        if Dictionaries["available"] == False:
+
+            DueDates = CurrentDate.strptime(CurrentDate, "%d-%b-%y").date()
+            if DueDates > CurrentDate:
+                print(f"These are all the books that are overdue. \n {Dictionaries["title"]}")
+
+DisplayAllOverDue()
+            
 
 # -------- Level 5 --------
 # TODO: Convert your data into a Book class with methods like checkout() and return_book()
@@ -125,6 +169,6 @@ UserCheckout(UserIDInput)
 # - Save/load catalog to file (CSV or JSON)
 # - Anything else you want to build on top of the system!
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # You can use this space to test your functions
-    pass
+#    pass
